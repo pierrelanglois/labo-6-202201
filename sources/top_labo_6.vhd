@@ -5,6 +5,7 @@
 -- Pierre Langlois
 -- v. 1.0, 2020/11/15 pour le laboratoire #5
 -- v. 1.1, 2021/04/02 modifications d'identificateurs d'entité etc.
+-- v. 1.2, 2022/03/29 modifications mineures de format
 --
 ---------------------------------------------------------------------------------------------------
 
@@ -16,22 +17,27 @@ use work.all;
 
 entity top_labo_6 is
     port(
-        clk : in std_logic; -- l'horloge de la carte à 100 MHz
-        sw : in std_logic_vector(15 downto 0); -- les 16 commutateurs
-        led : out std_logic_vector(15 downto 0); -- les 16 LED
-        seg : out std_logic_vector(7 downto 0); -- les cathodes partagées des quatre symboles à 7 segments + point
-        an : out std_logic_vector(3 downto 0); -- les anodes des quatre symboles à 7 segments + point
-        btnC : in std_logic; -- bouton du centre
-        btnU : in std_logic; -- bouton du haut
-        btnL : in std_logic; -- bouton de gauche
-        btnR : in std_logic; -- bouton de droite
-        btnD : in std_logic -- bouton du bas
+        clk  : in  std_logic;                      -- l'horloge de la carte à 100 MHz
+        sw   : in  std_logic_vector(15 downto 0);  -- les 16 commutateurs
+        led  : out std_logic_vector(15 downto 0);  -- les 16 LED
+        seg  : out std_logic_vector(7 downto 0);   -- les cathodes partagées des quatre symboles à 7 segments + point
+        an   : out std_logic_vector(3 downto 0);   -- les anodes des quatre symboles à 7 segments + point
+        btnC : in  std_logic;                      -- bouton du centre
+        btnU : in  std_logic;                      -- bouton du haut
+        btnL : in  std_logic;                      -- bouton de gauche
+        btnR : in  std_logic;                      -- bouton de droite
+        btnD : in  std_logic;                      -- bouton du bas
+        RsRx : in  std_logic;                      -- pour carte Basys 3, interface USB-RS-232 réception
+        RsTx : out std_logic                       -- pour carte Basys 3, interface USB-RS-232 transmission
+--        UART_TXD_IN : in std_logic;                -- pour carte Nexys A7 100T, patte C4, réception RS232 (du point du vue du FPGA), voir le manuel de l'utilisateur
+--        UART_RXD_OUT : out std_logic               -- pour carte Nexys A7 100T, patte D4, transmission RS232 (du point du vue du FPGA), voir le manuel de l'utilisateur
     );
 end;
 
 architecture arch of top_labo_6 is
 
 signal symboles : quatre_symboles;
+
 signal GPIO_in, GPIO_out : signed(15 downto 0);
 signal GPIO_in_valide, GPIO_out_valide : std_logic;
 
@@ -43,31 +49,24 @@ begin
     led(15) <= clk_1Hz;
     led(14) <= sw(14);
     
-    
     -- génération d'une horloge à 1 Hz pour pouvoir interagir avec les être humains
     horloge_humaine : entity generateur_horloge_precis(arch)
-    generic map (
-        freq_in => 100e6,
-        freq_out => 1
-    )
-    port map (
-        clk_in => clk,
-        clk_out => clk_1Hz
-    );
+        generic map (freq_in => 100e6, freq_out => 1      )
+        port map    (clk_in  => clk  , clk_out  => clk_1Hz);
     
     -- instantiation du processeur
     leprocesseur : entity PolyRISC(arch)
         port map (
-            clk => clk_1Hz,
-            reset => btnC,
-            GPIO_in => GPIO_in,
-            GPIO_in_valide => GPIO_in_valide,
-            GPIO_out => GPIO_out,
+            clk             => clk_1Hz,
+            reset           => btnC,
+            GPIO_in         => GPIO_in,
+            GPIO_in_valide  => GPIO_in_valide,
+            GPIO_out        => GPIO_out,
             GPIO_out_valide => GPIO_out_valide
         );
         
     -- on relie les 16 commutateurs à GPIO_in
-    -- et un à GPIO_in_valide
+    -- et un bouton à GPIO_in_valide
     GPIO_in <= signed(sw);
     GPIO_in_valide <= btnU;
         
@@ -75,7 +74,11 @@ begin
     -- on suppose ici que GPIO_out est exprimé sur 16 bits
     -- le code qui suit convient pour N = 16
     assert GPIO_in'length = 16 report "l'assignation suivante aux quatre affichages à 7 segments est correcte pour une largeur de 16 bits seulement" severity failure;
-    symboles <= (hex_to_7seg(GPIO_out(15 downto 12)), hex_to_7seg(GPIO_out(11 downto 8)), hex_to_7seg(GPIO_out(7 downto 4)), hex_to_7seg(GPIO_out(3 downto 0)));
+    symboles(3) <= hex_to_7seg(GPIO_out(15 downto 12));
+    symboles(2) <= hex_to_7seg(GPIO_out(11 downto  8));
+    symboles(1) <= hex_to_7seg(GPIO_out( 7 downto  4));
+    symboles(0) <= hex_to_7seg(GPIO_out( 3 downto  0));
+
     led(0) <= GPIO_out_valide;
  
    -- Circuit pour sérialiser l'accès aux quatre symboles à 7 segments.
