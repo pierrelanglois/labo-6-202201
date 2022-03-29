@@ -1,7 +1,7 @@
 
 ------------------------------------------------------------------------
 
-# INF3500 - labo 5 - hiver 2022
+# INF3500 - labo 6 - hiver 2022
 # Équipe **nom-d-équipe-ici**
 
 Membre #1 : **nom, prénom, matricule**
