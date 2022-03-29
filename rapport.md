@@ -1,7 +1,7 @@
 
 ------------------------------------------------------------------------
 
-# INF3500 - labo 5
+# INF3500 - labo 6
 # Équipe *nom-d-equipe-ici*
 # Noms et prénoms des coéquipiers: *vos-noms-et-prenoms-ici*
 
@@ -33,7 +33,7 @@ Nous utilisons la carte Nexys A7-50T.
 
 Nous utilisons la carte Nexys A7-100T.
 
-Voici un lien vers notre fichier de configuration final : [top_labo_5.bit](synthese-implementation/top_labo_5.bit)
+Voici un lien vers notre fichier de configuration final : [top_labo_6.bit](synthese-implementation/top_labo_6.bit)
 
 
 ## Partie 4 : Ressources pour implémenter le processeur PolyRISC
