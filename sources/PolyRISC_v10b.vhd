@@ -2,7 +2,7 @@
 --
 -- PolyRISC_v10b.vhd
 --
--- v. 0.2 2014-11-11 avec Hamza Bendaoudi: réécriture des types des instructions en constantes pour accomoder la synthèse
+-- v. 0.2 2014-11-11 avec Hamza Bendaoudi: réécriture des types des instructions en constantes pour accommoder la synthèse
 -- v. 0.3 2015-03-12 rendre le code conforme au diagramme, corrections et simplifications
 -- v. 0.4 2015-11-15 ajout de abs, min et max
 -- v. 1.0 2020-11-15 décomposition du code, définitions dans un package, et préparation pour le labo 5

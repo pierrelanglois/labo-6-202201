@@ -103,6 +103,17 @@ Simulez l'exécution de votre programme en fixant les valeurs de X et de Y aux c
 - Des commentaires dans le fichier [rapport.md](rapport.md) qui expliquent brièvement vos travaux de cette partie.
 
 
+## Partie 2 : Ajouter l'instruction RC := RA &times; RB à PolyRISC
+
+Ajoutez l'instruction RC := RA &times; RB au processeur PolyRISC. La multiplication de deux nombres de N bits génère un produit de 2N bits. Comme la largeur des registres de PolyRISC est de Wd bits, faites la multiplication des Wd / 2 bits les moins significatifs des registres A et B. Le produit sera exprimé sur Wd bits, et pourra être entreposé dans le registre RC.
+
+Voici les étapes à suivre :
+1. Dans le package [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd), ajouter une constante `AmulB` de valeur 11.
+2. Dans le fichier [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd), ajoutez l'instruction de multiplication dans la modélisation des opérations de l'UAL.
+3. Dans le fichier [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd), modifiez la déclaration du signal op_UAL pour accommoder la valeur maximale 11.
+
+
+
 ## Partie 2 : Ajouter l'instruction RC := GPIO_in à PolyRISC
 
 Ajoutez l'instruction RC := GPIO_in au processeur PolyRISC. Quand il exécute cette instruction, le processeur doit s'arrêter complètement (c'est à dire, le CP ne doit pas s'incrémenter) jusqu'à ce que le port GPIO_in_valide prenne la valeur '1'. Le processeur doit alors charger le registre spécifié RC avec la valeur disponible sur le port GPIO_in, puis poursuivre l'exécution de son programme en incrémentant le PC. Par exemple, pour l'instruction R5 := GPIO_in, c'est le registre R5 qui devrait être chargé.
