@@ -1,5 +1,4 @@
 -----------------------------------------------------------------------
-
 <table>
 <tr>
 <td><img src="figures/Polytechnique_signature-RGB-gauche_FR.png" alt="Logo de Polytechnique Montréal"></td>
@@ -30,8 +29,8 @@ Ce laboratoire s'appuie sur le matériel suivant :
 
 ### Préparatifs
 
-- Créez un répertoire inf3500\labo5\ dans lequel vous déposerez tous les fichiers de ce laboratoire.
-- Importez tous les fichiers du laboratoire à partir de l'entrepôt Git et placez-les dans votre répertoire inf3500\labo5\
+- Créez un répertoire inf3500\labo6\ dans lequel vous déposerez tous les fichiers de ce laboratoire.
+- Importez tous les fichiers du laboratoire à partir de l'entrepôt Git et placez-les dans votre répertoire inf3500\labo6\
 - Lancez Active-HD, créez un espace de travail (*workspace*) et créez un projet (*design*). Ajoutez-y tous les fichiers importés. Ou bien lancez et configurez votre environnement de travail préféré.
 
 
