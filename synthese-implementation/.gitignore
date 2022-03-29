@@ -1,0 +1,10 @@
+*.bit
+*.jou
+*.log
+*.pb
+*.html
+*.xml
+
+.hbs/
+.Xil/
+xsim.dir/
