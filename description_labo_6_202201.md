@@ -5,8 +5,8 @@
 <td><img src="figures/Polytechnique_signature-RGB-gauche_FR.png" alt="Logo de Polytechnique Montréal"></td>
 <td><h2>
 INF3500 - Conception et réalisation de systèmes numériques<br><br>
-Automne 2021<br><br>
-Laboratoire #5 : Processeur à usage général
+Hiver 2022<br><br>
+Laboratoire #6 : Processeur à usage général
 </h2></td>
 </tr>
 </table>
