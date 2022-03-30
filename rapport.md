@@ -17,6 +17,7 @@ Parties 1B et 1C : fichiers modifiés [PolyRISC_v10b.vhd](sources/PolyRISC_v10b.
 
 Partie 1D : fichier modifié [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd) utilisant vos nouvelles instructions.
 
+Le cas échéant, votre banc d'essai modifié [PolyRISC_v10_tb.vhd](sources/PolyRISC_v10_tb.vhd).
 
 ## Partie 2 : Implémentation sur la planchette
 

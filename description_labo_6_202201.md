@@ -146,6 +146,7 @@ Remettez vos fichiers modifiés :
 - [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd)
 - [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd)
 - [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd)
+- [PolyRISC_v10_tb.vhd](sources/PolyRISC_v10_tb.vhd)
 
 Ne modifiez pas le nom des fichiers, le nom des entités, la liste et le nom des ports, la liste et le nom des `generic`, le nom de l'architecture ni le nom du package.
 
