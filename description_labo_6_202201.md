@@ -216,7 +216,7 @@ La remise se fait directement sur votre entrepôt Git. Poussez régulièrement v
 Le barème de correction est progressif. Il est relativement facile d'obtenir une note de passage (> 10) au laboratoire et il faut mettre du travail pour obtenir l'équivalent d'un A (17/20). Il n'y a pas de bonus pour ce labo.
 
 Critères | Points
---------- | ------
+-------- | -----:
 Partie 1B : Ajout de l'instruction RC := RA × RB à PolyRISC | 2
 Partie 1C : Ajout de l'instruction RC := RA / 2 à PolyRISC | 2
 Partie 1D : Code assembleur pour l'algorithme de la racine carrée | 5
