@@ -1,18 +1,19 @@
 ---------------------------------------------------------------------------------------------------
--- 
+--
 -- PolyRISC_utilitaires_pkg.vhd
 --
 -- v. 1.0, 2020/11/15 Pierre Langlois
+-- v. 1.0c 2021-11-28 inclut RB := GPIO_in, solution du labo #5
 --
 -- Déclarations et fonctions utilitaires pour le processeur PolyRISC
--- 
+--
 ---------------------------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use ieee.numeric_std.all;
 
 package PolyRISC_utilitaires_pkg is
-    
+
     -- taille du processeur
     constant Nreg : positive := 16;    -- nombre de registres
     constant Wd : positive := 16;      -- largeur du chemin des données en bits
@@ -21,7 +22,7 @@ package PolyRISC_utilitaires_pkg is
 
     type lesRegistres_type is array(0 to Nreg - 1) of signed(Wd - 1 downto 0);
     type memoireDonnees_type is array(0 to 2 ** Md - 1) of signed(Wd - 1 downto 0);
-    
+
     -- catégories d'instructions
     constant reg : natural := 0;
     constant reg_valeur : natural := 1;
@@ -33,7 +34,7 @@ package PolyRISC_utilitaires_pkg is
     constant ecrireMemoire : natural := 1;
     constant lireGPIO_in : natural := 2;
     constant ecrireGPIO_out : natural := 3;
-    
+
     -- encodage des opérations de l'UAL
     constant passeA : natural := 0;
     constant passeB : natural := 1;
@@ -65,11 +66,11 @@ package PolyRISC_utilitaires_pkg is
         reg2 : natural range 0 to Nreg - 1;
         valeur : integer range -32768 to 32767;
     end record;
-    
+
     -- instructions prédéfinies
     constant NOP : instruction_type := (branchement, jamais, 0, 0, 0);
     constant STOP : instruction_type := (branchement, toujours, 0, 0, 0);
 
     type memoireInstructions_type is array (natural range <>) of instruction_type;
-    
+
 end package;

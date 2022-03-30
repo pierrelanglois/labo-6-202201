@@ -21,11 +21,10 @@ begin
 
     clk <= not clk after periode / 2;
     reset <= '1' after 0 sec, '0' after 7 * periode / 4;
-    
-    -- pour un test de la partie 2 du laboratoire #5, 202103
---    GPIO_in <= to_signed(35, GPIO_in'length) after 0 ns, to_signed(49, GPIO_in'length) after 50 ns;
---    GPIO_in_valide <= '0' after 0 ns, '1' after 30 ns, '0' after 40 ns, '1' after 70 ns, '0' after 80 ns;
- 
+
+    GPIO_in <= to_signed(15, GPIO_in'length) after 0 ns;
+    GPIO_in_valide <= '0' after 0 ns, '1' after 30 ns, '0' after 40 ns;
+
 	-- instanciation du module à vérifier
     UUT : entity PolyRISC(arch)
         port map (
@@ -36,5 +35,5 @@ begin
             GPIO_out => GPIO_out,
             GPIO_out_valide => GPIO_out_valide
         );
-        
+
 end;
