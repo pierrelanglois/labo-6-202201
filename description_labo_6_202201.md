@@ -124,7 +124,7 @@ Il n'est pas possible de programmer le PolyRISC pour implémenter cet algorithme
 
 Ajoutez l'instruction RC := RA × RB au processeur PolyRISC.
 
-La multiplication de deux nombres de N bits génère un produit de 2N bits. Comme la largeur des registres de PolyRISC est de Wd bits, faites la multiplication des Wd / 2 bits les moins significatifs des registres A et B. Le produit sera exprimé sur Wd bits, et pourra être entreposé dans le registre RC. Pour les besoins de ce laboratoire, on a fixé Wd à 32 bits dans le fichier PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd).
+La multiplication de deux nombres de N bits génère un produit de 2N bits. Comme la largeur des registres de PolyRISC est de Wd bits, faites la multiplication des Wd / 2 bits les moins significatifs des registres A et B. Le produit sera exprimé sur Wd bits, et pourra être entreposé dans le registre RC. Pour les besoins de ce laboratoire, on a fixé Wd à 32 bits dans le fichier [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd).
 
 Inspectez le code du processeur pour comprendre comment les instructions sont encodées dans l'UAL, et ajoutez l'instruction de multiplication . Vous devez modifier le package [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd) et le fichier [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd). Suivez les conventions observées dans ces deux fichiers autant que possible.
 
@@ -134,7 +134,7 @@ Ajoutez l'instruction RC := RA / 2 au processeur PolyRISC. Suivez la même proc�
 
 ### Partie 1D : Coder l'algorithme du calcul de la racine carrée par recherche binaire
 
-Écrivez un programme pour le PolyRISC correspondant au pseudocode de la partie 1A. Modifiez le fichier PolyRISC_le_programme_pkg.vhd.
+Écrivez un programme pour le PolyRISC correspondant au pseudocode de la partie 1A. Modifiez le fichier [PolyRISC_le_programme_pkg.vhd](PolyRISC_le_programme_pkg.vhd).
 
 Exprimez votre programme avec des opérations sur les registres, puis encodez les opérations selon les spécifications de PolyRISC. Inspirez-vous du fichier de démonstration pour écrire votre code.
 
@@ -153,7 +153,7 @@ Ajoutez des commentaires dans le fichier [rapport.md](rapport.md) qui expliquent
 
 ## Partie 2 : Implémentation sur la planchette
 
-Implémentez votre programme sur la planchette. Utilisez le fichier [top_labo_6.vhd](sources/top_labo_6.vhd). Observez comment les ports du processeur sont reliés aux ressources de la planchette. L'utilisateur doit spécifier les nombres à entrer à l'aide des commutateurs et du bouton 'Up'. Le bouton du centre sert de reset. Vérifiez le fonctionnement correct de votre processeur modifié.
+Implémentez votre programme sur la planchette. Utilisez le fichier [top_labo_6.vhd](sources/top_labo_6.vhd). Observez comment les ports du processeur sont reliés aux ressources de la planchette. L'utilisateur doit spécifier les nombres à entrer à l'aide des commutateurs et du bouton `btnU`. Le bouton `btnC` sert de `reset`. Vérifiez le fonctionnement correct de votre processeur modifié.
 
 Le signal de contrôle GPIO_in_valide est relié à un bouton. Comme le processeur fonctionne à une horloge de 100 MHz, il est impossible de peser sur le bouton assez rapidement pour qu'on puisse entrer un seul nombre à la fois. Une horloge de 1 Hz est donc fournie au processeur. Vous pouvez expérimenter avec différentes fréquences d'horloge.
 
@@ -225,7 +225,7 @@ Partie 3 : Ressources | 4
 Qualité, lisibilité et élégance du code : alignement, choix des identificateurs, qualité et pertinence des commentaires, respect des consignes de remise incluant les noms des fichiers, orthographe, etc. | 2
 **Pleine réussite du labo** | **17**
 Bonus partie 4a., sortie à la console | 1.5
-Bonus partie 4b., entreé par la console | 1.5
+Bonus partie 4b., entrée par la console | 1.5
 **Maximum possible sur 20 points** | **20**
 
 ## Références pour creuser plus loin

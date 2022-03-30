@@ -7,23 +7,18 @@
 
 ------------------------------------------------------------------------
 
-## Partie 1 : Algorithme du PGFC
+## Partie 1 : Nouvelles instructions et programme en assembleur
 
 Notes et observations ...
 
-Fichier modifié [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd).
+Parties 1B et 1C : fichiers modifiés [PolyRISC_v10b.vhd](sources/PolyRISC_v10b.vhd) et [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd).
+
+(Remettre une seule version des fichiers pour les parties 1B et 1C.)
+
+Partie 1D : fichier modifié [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd) utilisant vos nouvelles instructions.
 
 
-## Partie 2 : Ajouter l'instruction RC := GPIO_in à PolyRISC
-
-Notes et observations ...
-
-Fichiers modifiés [PolyRISC_v10b.vhd](sources/PolyRISC_v10b.vhd) et [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd).
-
-Fichier modifié [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd) utilisant votre nouvelle instruction.
-
-
-## Partie 3 : Implémentation sur la planchette
+## Partie 2 : Implémentation sur la planchette
 
 **Faire un choix et garder seulement une option.**
 
@@ -35,8 +30,7 @@ Nous utilisons la carte Nexys A7-100T.
 
 Voici un lien vers notre fichier de configuration final : [top_labo_6.bit](synthese-implementation/top_labo_6.bit)
 
-
-## Partie 4 : Ressources pour implémenter le processeur PolyRISC
+## Partie 3 : Ressources pour implémenter le processeur PolyRISC
 
 Voici le nombre de ressources disponibles dans notre FPGA.
 
@@ -48,16 +42,31 @@ Voici le nombre de ressources utilisées par le PolyRISC selon les valeurs deman
 
 Nreg | Wd | Mi | Md | version du processeur | Slice LUTs | Slice Registers | F7 Muxes | F8 Muxes | Bonded IOB
 ---- | -- | -- | -- | --------------------- | ---------- | --------------- | -------- | -------- | ------------
-16   | 16 | 8  | 8  | version de base       | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
 16   | 32 | 8  | 8  | version de base       | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
-32   | 16 | 8  | 8  | version de base       | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
+16   | 64 | 8  | 8  | version de base       | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
 32   | 32 | 8  | 8  | version de base       | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
-16   | 16 | 8  | 8  | version partie 2      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
-16   | 32 | 8  | 8  | version partie 2      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
-32   | 16 | 8  | 8  | version partie 2      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
-32   | 32 | 8  | 8  | version partie 2      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
+32   | 64 | 8  | 8  | version de base       | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
+16   | 32 | 8  | 8  | version partie 1      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
+16   | 64 | 8  | 8  | version partie 1      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
+32   | 32 | 8  | 8  | version partie 1      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
+32   | 64 | 8  | 8  | version partie 1      | nombre?    | nombre?         | nombre?  | nombre?  | nombre?
 
 Commentez complètement vos résultats ici.
+
+
+## Partie 4 : Bonus
+
+*Faire un choix et garder seulement une option.*
+- Nous n'avons pas complété le bonus. Nous nous concentrons sur notre réussite dans ce cours et dans d'autres.
+- Nous sommes vraiment en avance dans nos études, dans ce cours et tous les autres, et nous adorons les défis dans ce cours, donc nous avons complété une ou plusieurs parties du bonus.
+
+### Partie 4A
+
+Notre approche consiste à ...
+
+### Partie 4B
+
+Notre approche consiste à ...
 
 
 ## Observations et discussion générale
