@@ -36,7 +36,7 @@ Ce laboratoire s'appuie sur le matériel suivant :
 
 ## Partie 0 : Introduction
 
-Dans cet exercice de laboratoire, on considère l'implémentation d'un processeur à usage général modélisé en VHDL. Des modèles de processeurs ouverts existent et peuvent être analysés, simulés, modifiés, adaptés et implémentés par les utilisateurs dans la technologie de leur choix. Un exemple très populaire présentement est [le modèle de processeur (ou architecture de jeu d'instructions) RISC-V](https://fr.wikipedia.org/wiki/RISC-V). Dans ce laboratoire, on va plutôt utiliser le modèle  du processeur PolyRISC développé expressément pour les besoins du cours INF3500.
+Dans cet exercice de laboratoire, on considère l'implémentation d'un processeur à usage général modélisé en VHDL. Des modèles de processeurs ouverts existent et peuvent être analysés, simulés, modifiés, adaptés et implémentés par les utilisateurs dans la technologie de leur choix. Un exemple très populaire présentement est [le modèle de processeur (ou architecture de jeu d'instructions) RISC-V](https://fr.wikipedia.org/wiki/RISC-V). Dans ce laboratoire, nous utiliserons plutôt le modèle  du processeur PolyRISC développé expressément pour les besoins du cours INF3500.
 
 ### Retour sur le processeur PolyRISC
 
@@ -46,7 +46,7 @@ Le processeur PolyRISC inclut un registre d'entrée GPIO_in et un registre de so
 
 ![Le processeur PolyRISC](figures/PolyRISC.png)
 
-Pour les besoins de cet exercice, nous considérerons le cas où PolyRISC a un chemin des données de 16 bits de large, un bloc avec 16 registres et une mémoire des données de 256 mots. La mémoire des instructions a 256 mots de 32 bits.
+Pour les besoins de cet exercice, nous considérerons le cas où PolyRISC a un chemin des données de 32 bits de large, un bloc avec 16 registres et une mémoire des données de 256 mots. La mémoire des instructions a 256 mots de 32 bits.
 
 Le processeur est décrit dans trois fichiers :
 - La description principale : [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd);
@@ -63,7 +63,7 @@ Faites la simulation de ce code à l'aide du banc d'essai [PolyRISC_v10_tb.vhd](
 
 Observez l’évolution de tous les signaux du processeur PolyRISC dans le chronogramme. Observez en particulier le compteur de programme PC, les différents champs du mot d'instruction, le bit de contrôle N et le contenu du bloc des registres
 
-Dans le programme, les registres 0 à 5 du processeur, sont assignées aux valeurs selon le tableau suivant :
+Dans le programme, les registres 0 à 5 du processeur sont assignées aux variables du code selon le tableau suivant :
 Registre | Contenu
 --------- | ------
 lesRegistres[0] | compte maximal pour n
@@ -80,12 +80,12 @@ lesRegistres[5] | accumulateur
 Considérez le pseudocode suivant pour le calcul de la racine carrée par recherche binaire :
 
     nombre ← entrée externe;
-    haut ← 32767; -- plus grand nombre non positif exprimé sur 16 bits
+    haut ← 32767; -- plus grand nombre positif exprimé sur 16 bits, son carré s'exprime sur 32 bits
     bas ← 0;
     compteur ← 16;
     tant que compteur > 0 {
         pivot ← (haut + bas) / 2;
-        carre ← pivot &times; pivot;
+        carre ← pivot × pivot;
         si carre > nombre {
             haut ← pivot;
         } sinon {
@@ -95,12 +95,12 @@ Considérez le pseudocode suivant pour le calcul de la racine carrée par recher
     }
     sortie ← pivot;
 
-Une grille de calcul est disponible [en ligne dans Google Sheets](https://docs.google.com/spreadsheets/d/14NFBw2-asRoSAr_94Gr6MDmZvIvUAwTvmQ5Ta1CaHco/edit?usp=sharing) pour vous permettre d'expérimenter avec différentes valeurs et observer le déroulement de l'algorithme. Prenez une copie de la feuille afin de pouvoir l'éditer.
+Une grille de calcul est disponible [en ligne dans Google Sheets](https://docs.google.com/spreadsheets/d/14NFBw2-asRoSAr_94Gr6MDmZvIvUAwTvmQ5Ta1CaHco/edit?usp=sharing) pour vous permettre d'expérimenter avec différentes valeurs pour `nombre` et observer le déroulement de l'algorithme. Prenez une copie de la feuille afin de pouvoir l'éditer.
 
 Par exemple pour nombre = 7985, on aurait la séquence suivante :
 
 compteur | bas | haut | pivot | carre
--------- | --- | ---- | ----- | -----
+-------: | --: | ---: | ----: | ----:
 15 | 0 | 32767 | 16383 | 268402689
 14 | 0 | 16383 | 8191 | 67092481
 13 | 0 | 8191 | 4095 | 16769025
