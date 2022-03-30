@@ -13,14 +13,15 @@
 # Il faut commenter et dé-commenter les lignes qui correspondent à votre carte.
 #
 # -------------------------------------------------------------------------------
-
+#
 # lecture des fichiers sources VHDL
 remove_files [get_files]
 read_vhdl -vhdl2008 ../sources/utilitaires_inf3500_pkg.vhd
 read_vhdl -vhdl2008 ../sources/generateur_horloge_precis.vhd
 #read_vhdl -vhdl2008 ../sources/PolyRISC_v10b.vhd
-read_vhdl -vhdl2008 ../solutions/PolyRISC_v10b_solution.vhd
-read_vhdl -vhdl2008 ../sources/PolyRISC_utilitaires_pkg.vhd
+read_vhdl -vhdl2008 ../solutions/PolyRISC_v10c_solution.vhd
+#read_vhdl -vhdl2008 ../sources/PolyRISC_utilitaires_pkg.vhd
+read_vhdl -vhdl2008 ../solutions/PolyRISC_utilitaires_pkg_solution.vhd
 #read_vhdl -vhdl2008 ../sources/PolyRISC_le_programme_pkg.vhd
 read_vhdl -vhdl2008 ../solutions/PolyRISC_le_programme_pkg_solution.vhd
 read_vhdl -vhdl2008 ../sources/top_labo_6.vhd
