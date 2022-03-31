@@ -42,7 +42,7 @@ Dans cet exercice de laboratoire, on considère l'implémentation d'un processeu
 
 Le processeur PolyRISC a une architecture à jeu réduit d'instructions (*Reduced Instruction Set Computer* - RISC). Il comporte un chemin des données formé d'un bloc des registres, d'une UAL et d'une mémoire des données. Bien qu'on l'inclut ici, la mémoire des données n'est pas normalement considérée comme faisant partie du processeur. L'unité de contrôle est formée d'un compteur de programme, d'une mémoire des instructions, d'un bloc de décodage et d'une unité de branchement. Les diapositives et vidéos de la semaine #9 donnent tous les détails.
 
-Le processeur PolyRISC inclut un registre d'entrée GPIO_in et un registre de sortie GPIO_out (*General Purpose Input-Output* - GPIO). Ces registres établissent des liens directs entre le monde extérieur et le chemin des données du processeur. Ils sont associés chacun avec un port de contrôle, respectivement GPIO_in_valide et GPIO_out_valide.
+Le processeur PolyRISC inclut un registre d'entrée GPIO_in et un registre de sortie GPIO_out (*General Purpose Input-Output* - GPIO). Ces registres établissent des liens directs entre le monde extérieur et le chemin des données du processeur. Ils sont associés chacun avec un port de contrôle, respectivement GPIO_in_valide et GPIO_out_valide. (Attention, sur le diagramme, la sortie `GPIO_out_valide` est montrée sans registre, alors qu'il y a un registre de décrit dans le code VHDL.)
 
 ![Le processeur PolyRISC](figures/PolyRISC.png)
 
@@ -118,7 +118,7 @@ compteur | bas | haut | pivot | carre
 1 | 89 | 91 | 90 | 8100
 0 | 89 | 90 | 89 | 7921
 
-Il n'est pas possible de programmer le PolyRISC pour implémenter cet algorithme, parce qu'il manque la fonction de division par 2. Et, bien qu'on pourrait réaliser la multiplication par des additions successives, ce serait plutôt lourd. Vous allez donc modifier le PolyRISC pour lui ajouter les instructions nécessaires.
+Il n'est pas possible de programmer le PolyRISC pour implémenter cet algorithme, parce qu'il manque la fonction de division par 2. Par ailleurs, bien qu'on pourrait réaliser la multiplication par des additions successives, ce serait plutôt lourd. Vous allez donc modifier le PolyRISC pour lui ajouter les instructions nécessaires.
 
 ### Partie 1B : Ajouter l'instruction RC := RA × RB à PolyRISC
 
@@ -136,7 +136,7 @@ Pour être certains de n'avoir rien brisé, relancez la simulation pour le progr
 
 ### Partie 1C : Ajouter l'instruction RC := RA / 2 à PolyRISC
 
-Ajoutez l'instruction RC := RA / 2 au processeur PolyRISC. Suivez la même procédure et les mêmes conventions que pour l'instruction de multiplication.
+Ajoutez l'instruction RC := RA / 2 au processeur PolyRISC. Suivez la même procédure et les mêmes conventions que pour l'instruction de multiplication. Ajoutez une constante `Adiv2` de valeur 12.
 
 Pour être certains de n'avoir rien brisé, relancez la simulation pour le programme de Fibonacci.
 
@@ -180,7 +180,7 @@ Utilisez le fichier de commandes [labo_6_synth_impl.tcl](synthese-implementation
 
 ## Partie 3 : Ressources pour implémenter le processeur PolyRISC
 
-Mesurez la quantité de ressources nécessaires (Slice LUTs, Slice Registers, F7 Muxes, F8 Muxes, Bonded IOB) pour implémenter le processeur PolyRISC pour les cas suivants. Ne mesurez les coûts que pour le processeur (fichiers [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd) originiaux et modifiés), n'incluez pas le fichier [top_labo_6.vhd](sources/top_labo_6.vhd).
+Mesurez la quantité de ressources nécessaires (Slice LUTs, Slice Registers, F7 Muxes, F8 Muxes, Bonded IOB) pour implémenter le processeur PolyRISC pour les cas suivants. Ne mesurez les coûts que pour le processeur (fichiers [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd) originial et modifié), n'incluez pas le fichier [top_labo_6.vhd](sources/top_labo_6.vhd).
 
 Nreg | Wd | Mi | Md | version du processeur
 ---- | -- | -- | -- | ---------------------
