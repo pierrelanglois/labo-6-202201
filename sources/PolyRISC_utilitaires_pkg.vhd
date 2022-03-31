@@ -16,7 +16,7 @@ package PolyRISC_utilitaires_pkg is
 
     -- taille du processeur
     constant Nreg : positive := 16;    -- nombre de registres
-    constant Wd : positive := 16;      -- largeur du chemin des données en bits
+    constant Wd : positive := 32;      -- largeur du chemin des données en bits
     constant Mi : positive := 8;       -- largeur du PC et nombre de bits d'adresse de la mémoire d'instructions
     constant Md : positive := 8;       -- nombre de bits d'adresse de la mémoire des données
 
@@ -36,17 +36,17 @@ package PolyRISC_utilitaires_pkg is
     constant ecrireGPIO_out : natural := 3;
 
     -- encodage des opérations de l'UAL
-    constant passeA : natural := 0;
-    constant passeB : natural := 1;
-    constant AplusB : natural := 2;
+    constant passeA  : natural := 0;
+    constant passeB  : natural := 1;
+    constant AplusB  : natural := 2;
     constant AmoinsB : natural := 3;
-    constant AetB : natural := 4;
-    constant AouB : natural := 5;
-    constant nonA : natural := 6;
-    constant AouxB : natural := 7;
-    constant absA : natural := 8;
-    constant minAB : natural := 9;
-    constant maxAB : natural := 10;
+    constant AetB    : natural := 4;
+    constant AouB    : natural := 5;
+    constant nonA    : natural := 6;
+    constant AouxB   : natural := 7;
+    constant absA    : natural := 8;
+    constant minAB   : natural := 9;
+    constant maxAB   : natural := 10;
 
     -- encodage des conditions de branchement
     constant egal : natural := 0;

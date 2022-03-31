@@ -3,7 +3,6 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.all;
 use work.PolyRISC_utilitaires_pkg.all;
-use work.PolyRISC_le_programme_pkg.all;
 
 entity PolyRISC_tb is
 end;
@@ -22,7 +21,7 @@ begin
     clk <= not clk after periode / 2;
     reset <= '1' after 0 sec, '0' after 7 * periode / 4;
 
-    GPIO_in <= to_signed(15, GPIO_in'length) after 0 ns;
+    GPIO_in <= to_signed(7, GPIO_in'length) after 0 ns;
     GPIO_in_valide <= '0' after 0 ns, '1' after 30 ns, '0' after 40 ns;
 
 	-- instanciation du module à vérifier

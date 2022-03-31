@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
--- 
+--
 -- PolyRISC_le_programme_pkg.vhd
 --
 -- contenu de la mémoire des instructions
@@ -8,11 +8,11 @@
 use work.PolyRISC_utilitaires_pkg.all;
 
 package PolyRISC_le_programme_pkg is
-    
+
     -----------------------------------------------------------------------------------------------
     -- partie 0 : programme de démonstration, suite de Fibonacci
     constant memoireInstructions : memoireInstructions_type := (
-    (reg_valeur, passeB, 0, 0, 12),                -- 0 : R0 := #12
+    (memoire, lireGPIO_in, 0, 0, 0),               -- 0 : R0 := lire GPIO_in
     (reg_valeur, passeB, 1, 0, 2),                 -- 1 : R1 := #2
     (reg_valeur, passeB, 3, 0, 0),                 -- 2 : R3 := #0
     (memoire, ecrireGPIO_out, 3, 0, 0),            -- 3 : GPIO_out := R3
@@ -26,16 +26,18 @@ package PolyRISC_le_programme_pkg is
     (branchement, ppe, 0, 1, -5),                  -- 11 : si R1 <= R0 goto CP + -5
     STOP,
     NOP);
-    
+
     -----------------------------------------------------------------------------------------------
     -- parties 1 et 2 : votre code à développer
+    -- placez le code de la partie 0 en commentaires
+    -- utilisez le code de la partie 0 pour vous inspirer
+
 --    constant memoireInstructions : memoireInstructions_type := (
---    (reg_valeur, passeB, 0, 0, 100),               -- 0 : R0 := #100
---    (reg_valeur, passeB, 1, 0, 60),                -- 1 : R1 := #60
+--    (memoire, lireGPIO_in, 0, 0, 0),               -- 0 : R0 := lire GPIO_in
 --
 --    -- votre code ici
 --
 --    STOP,
 --    NOP);
-    
+
 end package;

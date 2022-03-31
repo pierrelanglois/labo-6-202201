@@ -59,9 +59,9 @@ Un banc d'essai très rudimentaire [PolyRISC_v10_tb.vhd](sources/PolyRISC_v10_tb
 
 Considérez le fichier [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd) qui contient un programme pour le processeur PolyRISC pour calculer le n-ième nombre de la suite de Fibonacci.
 
-Faites la simulation de ce code à l'aide du banc d'essai [PolyRISC_v10_tb.vhd](sources/PolyRISC_v10_tb.vhd). Créez un chronogramme et ajoutez-y tous les signaux de l'UUT. Lancez la simulation pour 1000 ns.
+Faites la simulation de ce code à l'aide du banc d'essai [PolyRISC_v10_tb.vhd](sources/PolyRISC_v10_tb.vhd). Créez un chronogramme et ajoutez-y tous les signaux de l'UUT. Lancez la simulation pour 500 ns.
 
-Observez l’évolution de tous les signaux du processeur PolyRISC dans le chronogramme. Observez en particulier le compteur de programme PC, les différents champs du mot d'instruction, le bit de contrôle N et le contenu du bloc des registres
+Observez l’évolution de tous les signaux du processeur PolyRISC dans le chronogramme. Observez en particulier le compteur de programme CP, les différents champs du mot d'instruction, le bit de contrôle N et le contenu du bloc des registres
 
 Dans le programme, les registres 0 à 5 du processeur sont assignées aux variables du code selon le tableau suivant :
 Registre | Contenu
@@ -124,21 +124,32 @@ Il n'est pas possible de programmer le PolyRISC pour implémenter cet algorithme
 
 Ajoutez l'instruction RC := RA × RB au processeur PolyRISC.
 
-La multiplication de deux nombres de N bits génère un produit de 2N bits. Comme la largeur des registres de PolyRISC est de Wd bits, faites la multiplication des Wd / 2 bits les moins significatifs des registres A et B. Le produit sera exprimé sur Wd bits, et pourra être entreposé dans le registre RC. Pour les besoins de ce laboratoire, on a fixé Wd à 32 bits dans le fichier [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd).
+La multiplication de deux nombres de N bits génère un produit de 2N bits. Comme la largeur des registres de PolyRISC est de Wd bits, faites la multiplication des Wd / 2 bits les moins significatifs des registres A et B (en VHDL : `A(Wd / 2 - 1 downto 0) * B(Wd / 2 - 1 downto 0);)`. Le produit sera exprimé sur Wd bits, et pourra être entreposé dans le registre RC. Pour les besoins de ce laboratoire, on a fixé Wd à 32 bits dans le fichier [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd).
 
-Inspectez le code du processeur pour comprendre comment les instructions sont encodées dans l'UAL, et ajoutez l'instruction de multiplication . Vous devez modifier le package [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd) et le fichier [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd). Suivez les conventions observées dans ces deux fichiers autant que possible.
+Inspectez le code du processeur pour comprendre comment les instructions sont encodées dans l'UAL, et ajoutez l'instruction de multiplication. Suivez les conventions observées dans ces deux fichiers autant que possible.
+
+Modifiez le package [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd) pour ajouter une constante `AmulB` de valeur 11.
+
+Modifiez le fichier [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd) pour ajouter la fonctionnalité de multiplication à la modélisation des opérations de l'UAL.
+
+Pour être certains de n'avoir rien brisé, relancez la simulation pour le programme de Fibonacci.
 
 ### Partie 1C : Ajouter l'instruction RC := RA / 2 à PolyRISC
 
-Ajoutez l'instruction RC := RA / 2 au processeur PolyRISC. Suivez la même procédure que pour l'instruction de multiplication.
+Ajoutez l'instruction RC := RA / 2 au processeur PolyRISC. Suivez la même procédure et les mêmes conventions que pour l'instruction de multiplication.
+
+Pour être certains de n'avoir rien brisé, relancez la simulation pour le programme de Fibonacci.
 
 ### Partie 1D : Coder l'algorithme du calcul de la racine carrée par recherche binaire
 
-Écrivez un programme pour le PolyRISC correspondant au pseudocode de la partie 1A. Modifiez le fichier [PolyRISC_le_programme_pkg.vhd](PolyRISC_le_programme_pkg.vhd).
+Écrivez un programme pour le PolyRISC correspondant au pseudocode de la partie 1A. Ajoutez votre programme dans le fichier [PolyRISC_le_programme_pkg.vhd](PolyRISC_le_programme_pkg.vhd).
 
-Exprimez votre programme avec des opérations sur les registres, puis encodez les opérations selon les spécifications de PolyRISC. Inspirez-vous du fichier de démonstration pour écrire votre code.
+Exprimez votre programme avec des opérations sur les registres, puis encodez les opérations selon les spécifications de PolyRISC. Inspirez-vous du fichier de démonstration pour écrire votre code. Utilisez vos deux nouvelles instructions. Référez-vous aux diapositives du chapitre 9 des notes de cours pour bien comprendre l'encodage des instructions. Il y a deux défis pour écrire le programme :
+- traduire le pseudocode en code assembleur pour PolyRISC; et,
+- bien encoder les instructions de votre code assembleur selon la notation pour PolyRISC.
+Ce travail serait fait normalement par un compilateur, à partir d'un langage comme Python ou C. Dans ce laboratoire on fait le travail à la main pour bien comprendre comment chacun des blocs de PolyRISC fonctionne.
 
-Faites la simulation de votre programme pour confirmer qu'il fonctionne correctement.
+Faites la simulation de votre programme pour confirmer qu'il fonctionne correctement. Testez avec plusieurs valeurs positives pour `nombre` entre 0 et 2 ^ 30 - 1.
 
 ### À remettre pour la partie 1
 
