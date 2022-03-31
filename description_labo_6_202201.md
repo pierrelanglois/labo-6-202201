@@ -167,7 +167,7 @@ Ajoutez des commentaires dans le fichier [rapport.md](rapport.md) qui expliquent
 
 Implémentez votre programme sur la planchette. Utilisez le fichier [top_labo_6.vhd](sources/top_labo_6.vhd). Observez comment les ports du processeur sont reliés aux ressources de la planchette. L'utilisateur doit spécifier les nombres à entrer à l'aide des commutateurs et du bouton `btnU`. Le bouton `btnC` sert de `reset`. Vérifiez le fonctionnement correct de votre processeur modifié.
 
-Dans votre programme, vous pouvez ajouter des écrites vers la carte pour mieux voir le déroulement de celui-ci.
+Dans votre programme, vous pouvez ajouter des écritures vers la carte pour mieux voir le déroulement de celui-ci.
 
 Le signal de contrôle GPIO_in_valide est relié à un bouton. Comme le processeur fonctionne à une horloge de 100 MHz, il est impossible de peser sur le bouton assez rapidement pour qu'on puisse entrer un seul nombre à la fois. Une horloge de 1 Hz est donc fournie au processeur. Vous pouvez expérimenter avec différentes fréquences d'horloge.
 
