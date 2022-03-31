@@ -18,12 +18,9 @@
 remove_files [get_files]
 read_vhdl -vhdl2008 ../sources/utilitaires_inf3500_pkg.vhd
 read_vhdl -vhdl2008 ../sources/generateur_horloge_precis.vhd
-#read_vhdl -vhdl2008 ../sources/PolyRISC_v10b.vhd
-read_vhdl -vhdl2008 ../solutions/PolyRISC_v10c_solution.vhd
-#read_vhdl -vhdl2008 ../sources/PolyRISC_utilitaires_pkg.vhd
-read_vhdl -vhdl2008 ../solutions/PolyRISC_utilitaires_pkg_solution.vhd
-#read_vhdl -vhdl2008 ../sources/PolyRISC_le_programme_pkg.vhd
-read_vhdl -vhdl2008 ../solutions/PolyRISC_le_programme_pkg_solution.vhd
+read_vhdl -vhdl2008 ../sources/PolyRISC_v10c.vhd
+read_vhdl -vhdl2008 ../sources/PolyRISC_utilitaires_pkg.vhd
+read_vhdl -vhdl2008 ../sources/PolyRISC_le_programme_pkg.vhd
 read_vhdl -vhdl2008 ../sources/top_labo_6.vhd
 
 # lecture du fichier de contraintes xdc; choisir la ligne qui correspond à votre carte
@@ -65,6 +62,3 @@ program_hw_devices [get_hw_devices xc7a35t_0]
 #current_hw_device [get_hw_devices xc7a100t_0]
 #set_property PROGRAM.FILE {top_labo_6.bit} [get_hw_devices xc7a100t_0]
 #program_hw_devices [get_hw_devices xc7a100t_0]
-
-
-

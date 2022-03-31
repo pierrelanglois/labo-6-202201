@@ -149,7 +149,7 @@ Exprimez votre programme avec des opérations sur les registres, puis encodez le
 - bien encoder les instructions de votre code assembleur selon la notation pour PolyRISC.
 Ce travail serait fait normalement par un compilateur, à partir d'un langage comme Python ou C. Dans ce laboratoire on fait le travail à la main pour bien comprendre comment chacun des blocs de PolyRISC fonctionne.
 
-Faites la simulation de votre programme pour confirmer qu'il fonctionne correctement. Testez avec plusieurs valeurs positives pour `nombre` entre 0 et 2 ^ 30 - 1.
+Faites la simulation de votre programme pour confirmer qu'il fonctionne correctement. Testez avec plusieurs valeurs positives pour `nombre` entre 0 et 2^30 - 1.
 
 ### À remettre pour la partie 1
 
