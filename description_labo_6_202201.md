@@ -142,7 +142,7 @@ Pour être certains de n'avoir rien brisé, relancez la simulation pour le progr
 
 ### Partie 1D : Coder l'algorithme du calcul de la racine carrée par recherche binaire
 
-Écrivez un programme pour le PolyRISC correspondant au pseudocode de la partie 1A. Ajoutez votre programme dans le fichier [PolyRISC_le_programme_pkg.vhd](PolyRISC_le_programme_pkg.vhd).
+Écrivez un programme pour le PolyRISC correspondant au pseudocode de la partie 1A. Ajoutez votre programme dans le fichier [PolyRISC_le_programme_pkg.vhd](sources/PolyRISC_le_programme_pkg.vhd).
 
 Exprimez votre programme avec des opérations sur les registres, puis encodez les opérations selon les spécifications de PolyRISC. Inspirez-vous du fichier de démonstration pour écrire votre code. Utilisez vos deux nouvelles instructions. Référez-vous aux diapositives du chapitre 9 des notes de cours pour bien comprendre l'encodage des instructions. Il y a deux défis pour écrire le programme :
 - traduire le pseudocode en code assembleur pour PolyRISC; et,
