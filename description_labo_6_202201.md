@@ -147,6 +147,7 @@ Pour être certains de n'avoir rien brisé, relancez la simulation pour le progr
 Exprimez votre programme avec des opérations sur les registres, puis encodez les opérations selon les spécifications de PolyRISC. Inspirez-vous du fichier de démonstration pour écrire votre code. Utilisez vos deux nouvelles instructions. Référez-vous aux diapositives du chapitre 9 des notes de cours pour bien comprendre l'encodage des instructions. Il y a deux défis pour écrire le programme :
 - traduire le pseudocode en code assembleur pour PolyRISC; et,
 - bien encoder les instructions de votre code assembleur selon la notation pour PolyRISC.
+
 Ce travail serait fait normalement par un compilateur, à partir d'un langage comme Python ou C. Dans ce laboratoire on fait le travail à la main pour bien comprendre comment chacun des blocs de PolyRISC fonctionne.
 
 Faites la simulation de votre programme pour confirmer qu'il fonctionne correctement. Testez avec plusieurs valeurs positives pour `nombre` entre 0 et 2^30 - 1.
@@ -169,7 +170,7 @@ Implémentez votre programme sur la planchette. Utilisez le fichier [top_labo_6.
 
 Dans votre programme, vous pouvez ajouter des écritures vers la carte pour mieux voir le déroulement de celui-ci.
 
-Le signal de contrôle GPIO_in_valide est relié à un bouton. Comme le processeur fonctionne à une horloge de 100 MHz, il est impossible de peser sur le bouton assez rapidement pour qu'on puisse entrer un seul nombre à la fois. Une horloge de 1 Hz est donc fournie au processeur. Vous pouvez expérimenter avec différentes fréquences d'horloge.
+Le signal de contrôle `GPIO_in_valide` est relié à un bouton. Comme le processeur fonctionne à une horloge de 100 MHz, il est impossible de peser sur le bouton assez rapidement pour qu'on puisse entrer un seul nombre à la fois. Une horloge de 1 Hz est donc fournie au processeur. Vous pouvez expérimenter avec différentes fréquences d'horloge.
 
 Utilisez le fichier de commandes [labo_6_synth_impl.tcl](synthese-implementation/labo_6_synth_impl.tcl) et le fichier de contraintes .xdc correspondant à votre planchette. Commentez et décommentez les lignes appropriées du fichier .tcl selon la planchette que vous utilisez.
 
@@ -179,7 +180,7 @@ Utilisez le fichier de commandes [labo_6_synth_impl.tcl](synthese-implementation
 
 ## Partie 3 : Ressources pour implémenter le processeur PolyRISC
 
-Mesurez la quantité de ressources nécessaires (Slice LUTs, Slice Registers, F7 Muxes, F8 Muxes, Bonded IOB) pour implémenter le processeur PolyRISC pour les cas suivants.
+Mesurez la quantité de ressources nécessaires (Slice LUTs, Slice Registers, F7 Muxes, F8 Muxes, Bonded IOB) pour implémenter le processeur PolyRISC pour les cas suivants. Ne mesurez les coûts que pour le processeur (fichiers [PolyRISC_v10c.vhd](sources/PolyRISC_v10c.vhd) originiaux et modifiés), n'incluez pas le fichier [top_labo_6.vhd](sources/top_labo_6.vhd).
 
 Nreg | Wd | Mi | Md | version du processeur
 ---- | -- | -- | -- | ---------------------
@@ -227,7 +228,7 @@ La remise se fait directement sur votre entrepôt Git. Poussez régulièrement v
 
 ## Barème de correction
 
-Le barème de correction est progressif. Il est relativement facile d'obtenir une note de passage (> 10) au laboratoire et il faut mettre du travail pour obtenir l'équivalent d'un A (17/20). Il n'y a pas de bonus pour ce labo.
+Le barème de correction est progressif. Il est relativement facile d'obtenir une note de passage (> 10) au laboratoire et il faut mettre du travail pour obtenir l'équivalent d'un A (17/20).
 
 Critères | Points
 -------- | -----:
