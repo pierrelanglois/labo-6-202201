@@ -77,7 +77,7 @@ lesRegistres[5] | accumulateur
 
 ### Partie 1A : Le pseudocode
 
-Considérez le pseudocode suivant pour le calcul de la racine carrée par recherche binaire :
+Considérez le pseudocode suivant pour le calcul de la racine carrée par recherche binaire. (Remerciements au [professeur Jean Pierre David](https://www.polymtl.ca/expertises/david-jean-pierre) d'avoir proposé cet algorithme dans un contexte éducatif.)
 
     nombre ← entrée externe;
     haut ← 32767; -- plus grand nombre positif exprimé sur 16 bits, son carré s'exprime sur 32 bits
@@ -167,6 +167,8 @@ Ajoutez des commentaires dans le fichier [rapport.md](rapport.md) qui expliquent
 
 Implémentez votre programme sur la planchette. Utilisez le fichier [top_labo_6.vhd](sources/top_labo_6.vhd). Observez comment les ports du processeur sont reliés aux ressources de la planchette. L'utilisateur doit spécifier les nombres à entrer à l'aide des commutateurs et du bouton `btnU`. Le bouton `btnC` sert de `reset`. Vérifiez le fonctionnement correct de votre processeur modifié.
 
+Dans votre programme, vous pouvez ajouter des écrites vers la carte pour mieux voir le déroulement de celui-ci.
+
 Le signal de contrôle GPIO_in_valide est relié à un bouton. Comme le processeur fonctionne à une horloge de 100 MHz, il est impossible de peser sur le bouton assez rapidement pour qu'on puisse entrer un seul nombre à la fois. Une horloge de 1 Hz est donc fournie au processeur. Vous pouvez expérimenter avec différentes fréquences d'horloge.
 
 Utilisez le fichier de commandes [labo_6_synth_impl.tcl](synthese-implementation/labo_6_synth_impl.tcl) et le fichier de contraintes .xdc correspondant à votre planchette. Commentez et décommentez les lignes appropriées du fichier .tcl selon la planchette que vous utilisez.
@@ -192,7 +194,7 @@ Nreg | Wd | Mi | Md | version du processeur
 
 Avec l'organisation actuelle du code, vous devrez modifier le fichier [PolyRISC_utilitaires_pkg.vhd](sources/PolyRISC_utilitaires_pkg.vhd) pour varier les paramètres Nreg et Wd.
 
-Notez les statistiques dans votre [rapport.md](rapport.md). Commentez complètement vos résultats.
+Notez les statistiques dans votre [rapport.md](rapport.md). Analysez et commentez complètement vos résultats. Comment expliquez vous la progression du nombre de ressources utilisées selon les valeurs de Nreg, Wd, Mi et Md, et de la version du processeur ?
 
 ## Partie 4 : Bonus
 
@@ -233,7 +235,7 @@ Partie 1B : Ajout de l'instruction RC := RA × RB à PolyRISC | 2
 Partie 1C : Ajout de l'instruction RC := RA / 2 à PolyRISC | 2
 Partie 1D : Code assembleur pour l'algorithme de la racine carrée | 5
 Partie 2 : Implémentation sur la planchette | 2
-Partie 3 : Ressources | 4
+Partie 3 : Ressources et analyse | 4
 Qualité, lisibilité et élégance du code : alignement, choix des identificateurs, qualité et pertinence des commentaires, respect des consignes de remise incluant les noms des fichiers, orthographe, etc. | 2
 **Pleine réussite du labo** | **17**
 Bonus partie 4a., sortie à la console | 1.5
