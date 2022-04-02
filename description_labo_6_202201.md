@@ -91,7 +91,7 @@ Considérez le pseudocode suivant pour le calcul de la racine carrée par recher
         } sinon {
             bas ← pivot;
         }
-        compteur := compteur - 1;
+        compteur ← compteur - 1;
     }
     sortie ← pivot;
 
